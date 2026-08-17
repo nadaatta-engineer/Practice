@@ -1,0 +1,12 @@
+name: My First Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print an error message
+        run: |
+          echo "ERROR: Something went wrong here!"
+          exit 1
