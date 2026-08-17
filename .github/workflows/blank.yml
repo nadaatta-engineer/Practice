@@ -1,12 +1,19 @@
-name: My First Test
+name: Python Error Test
 
 on: [push]
 
 jobs:
-  test:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Print an error message
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run a buggy Python script
         run: |
-          echo "ERROR: Something went wrong here!"
-          exit 1
+          python3 -c "print(10 / 0)"
